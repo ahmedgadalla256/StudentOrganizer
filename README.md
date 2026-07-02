@@ -81,12 +81,6 @@ git clone https://github.com/ahmedgadalla256/StudentOrganizer.git
 http://localhost/StudentOrganizer/
 ```
 
-## Screenshots
-
-Add screenshots of your application here.
-
-
-
 ## Future Improvements
 
 * Calendar view
