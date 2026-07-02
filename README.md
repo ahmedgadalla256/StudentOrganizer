@@ -3,6 +3,16 @@
 A web-based Student Organizer application built with **PHP** and **MySQL** to help students manage their academic life in one place. The system allows users to organize courses, assignments, deadlines, and other academic information through an easy-to-use interface.
 
 ## Features
+* sign up page
+
+  * Full name, email, password, confirm password
+  * check if email exists and that pssword matches the confirm
+  * add the user info to users table in database
+
+* login page
+
+  * email, password
+  * check the data with the users table in database
 
 * Course Management
 
