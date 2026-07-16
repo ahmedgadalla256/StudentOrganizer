@@ -39,7 +39,9 @@ if(!isset($_SESSION["user_id"])) {
                 <a href="courses/courses.php" class="btn btn-success">
                     Manage Courses
                 </a>
-
+                <a href="assignments/assignments.php" class="btn btn-info">
+                    Manage Assignments
+                </a>
                 <a href="auth/logout.php" class="btn btn-danger">
                     Logout
                 </a>
