@@ -19,7 +19,7 @@ $id = $_GET["id"];
 $query = $conn->prepare("DELETE FROM courses WHERE id=? And user_id= ?");
 $query-> execute([$id, $user_id]);
 
-header("Location: courses.php");
+header("Location: assignments.php");
 exit();
 
 ?>
