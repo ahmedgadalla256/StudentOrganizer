@@ -21,9 +21,4 @@ $query-> execute([$id, $user_id]);
 
 header("Location: assignments.php");
 exit();
-
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> 78bc9f3 (Update Student Organizer project)
