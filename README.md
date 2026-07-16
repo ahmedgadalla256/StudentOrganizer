@@ -43,6 +43,7 @@ A web-based Student Organizer application built with **PHP** and **MySQL** to he
 ```text
 StudentOrganizer/
 │
+├── assignmnets/
 ├── auth/
 ├── courses/
 ├── config/
