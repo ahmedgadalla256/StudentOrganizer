@@ -4,6 +4,7 @@
 --
 -- Host: 127.0.0.1
 -- Generation Time: Jul 16, 2026 at 05:10 AM
+-- Generation Time: Jul 16, 2026 at 02:56 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -34,6 +35,11 @@ CREATE TABLE `assignments` (
   `course_code` varchar(250) NOT NULL,
   `created_at` date DEFAULT current_timestamp(),
   `due_date` date NOT NULL,
+  `title` text NOT NULL,
+  `course_code` varchar(250) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `due_date` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
   `note` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -114,6 +120,7 @@ ALTER TABLE `users`
 --
 ALTER TABLE `assignments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `courses`

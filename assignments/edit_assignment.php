@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php 
+=======
+<?php
+>>>>>>> 78bc9f3 (Update Student Organizer project)
 session_start();
 require_once("../config/studentdb.inc.php");
 
@@ -16,8 +20,14 @@ if(!isset($_GET["id"])) {
 
 $id = $_GET["id"];
 
+<<<<<<< HEAD
 $query = $conn-> prepare("SELECT * FROM assignments WHERE id =? AND user_id = ?");
 $query -> execute([$id, $user_id]);
+=======
+$query = $conn ->prepare("SELECT * FROM assignments WHERE id =? AND user_id = ? ");
+$query -> execute([$id, $user_id]);
+
+>>>>>>> 78bc9f3 (Update Student Organizer project)
 $assignment = $query -> fetch(PDO::FETCH_ASSOC);
 
 if(!$assignment) {
@@ -31,16 +41,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $course_code = trim($_POST["course_code"]);
     $due_date = trim($_POST["due_date"]);
     $created_at = trim($_POST["created_at"]);
+<<<<<<< HEAD
     $note = trim($_POST["note"]);
 
     $update = $conn->prepare("UPDATE assignments SET title = ?, course_code = ?, due_date = ?, created_at = ?, note = ? WHERE id = ? AND user_id = ?");
+=======
+    $notes = trim($_POST["notes"]);
+
+    $update = $conn->prepare("UPDATE assignments SET title = ?, course_code = ?, due_date = ?, created_at = ?, notes = ? WHERE id = ? AND user_id = ?");
+>>>>>>> 78bc9f3 (Update Student Organizer project)
 
     $update-> execute([
         $title,
         $course_code,
         $due_date,
         $created_at,
+<<<<<<< HEAD
         $note,
+=======
+        $notes,
+>>>>>>> 78bc9f3 (Update Student Organizer project)
         $id,
         $user_id
     ]);
@@ -74,7 +94,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <form method="POST">
 
                 <div class="mb-3">
+<<<<<<< HEAD
                     <label>Assignment Title</label>
+=======
+                    <label>Title</label>
+>>>>>>> 78bc9f3 (Update Student Organizer project)
                     <input type="text" name="title" class="form-control"
                            value="<?php echo $assignment['title']; ?>" required>
                 </div>
@@ -94,12 +118,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="mb-3">
                     <label>Created At</label>
                     <input type="date" name="created_at" class="form-control"
+<<<<<<< HEAD
                            value="<?php echo $assignment['created_at']; ?>" required>   
+=======
+                           value="<?php echo $assignment['created_at']; ?>" required>
+>>>>>>> 78bc9f3 (Update Student Organizer project)
                 </div>
 
                 <div class="mb-3">
                     <label>Notes</label>
+<<<<<<< HEAD
                     <textarea name="note" class="form-control" rows="4"><?php echo $assignment['note']; ?></textarea>
+=======
+                    <textarea name="notes" class="form-control" rows="4"><?php echo $assignment['notes']; ?></textarea>
+>>>>>>> 78bc9f3 (Update Student Organizer project)
                 </div>
 
                 <button type="submit" class="btn btn-warning">

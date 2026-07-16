@@ -23,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $credit_hours = trim($_POST["credit_hours"]);
     $notes = trim($_POST["notes"]);
 
-    $query = $conn -> prepare("INSERT INTO courses (user_id, course_name, course_code, instructor, classroom, day, course_time, semester, credit_hours, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $query = $conn->prepare("INSERT INTO courses (user_id, course_name, course_code, instructor, classroom, day, course_time, semester, credit_hours, notes) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-    $query -> execute([
+    $query->execute([
         $user_id,
         $course_name,
         $course_code,
@@ -35,12 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $course_time,
         $semester,
         $credit_hours,
-        $notes,
+        $notes
     ]);
 
-header ("Location: courses.php");
-exit();
-
+    header("Location: courses.php");
+    exit();
 }
 ?>
 
