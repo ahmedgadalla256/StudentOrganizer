@@ -14,6 +14,10 @@ A web-based Student Organizer application built with **PHP** and **MySQL** to he
   * email, password
   * check the data with the users table in database
 
+* Account page
+  * display username , email
+  * option to change password
+
 * Course Management
 
   * Add, edit, and delete courses
@@ -49,6 +53,9 @@ StudentOrganizer/
 ├── config/
 ├── database/
 ├── dashboard.php
+├── profile.php
+├── java.js
+├── style.css
 ├── .gitignore
 └── README.md
 ```
