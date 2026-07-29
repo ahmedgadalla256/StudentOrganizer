@@ -19,6 +19,11 @@ A web-based Student Organizer application built with **PHP** and **MySQL** to he
   * Add, edit, and delete courses
   * View all enrolled courses
 
+* Assignments Management
+
+  * Add, edit, and delete assignments
+  * View all current assignmnets
+  
 * Database Integration
 
   * Stores data using MySQL
@@ -38,6 +43,7 @@ A web-based Student Organizer application built with **PHP** and **MySQL** to he
 ```text
 StudentOrganizer/
 │
+├── assignmnets/
 ├── auth/
 ├── courses/
 ├── config/
