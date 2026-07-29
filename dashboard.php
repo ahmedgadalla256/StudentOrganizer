@@ -14,6 +14,8 @@ if(!isset($_SESSION["user_id"])) {
     <title>Dashboard</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-light">
@@ -25,7 +27,9 @@ if(!isset($_SESSION["user_id"])) {
         <div class="card-header bg-primary text-white">
             <h3>Student Organizer Dashboard</h3>
         </div>
+        
 
+        
         <div class="card-body">
 
             <h4>Welcome, <?php echo $_SESSION["full_name"]; ?>!</h4>
@@ -36,6 +40,9 @@ if(!isset($_SESSION["user_id"])) {
 
             <div class="d-grid gap-2">
 
+                <a href="profile.php"  class="btn btns">
+                    Account
+                </a>
                 <a href="courses/courses.php" class="btn btn-success">
                     Manage Courses
                 </a>
@@ -45,7 +52,6 @@ if(!isset($_SESSION["user_id"])) {
                 <a href="auth/logout.php" class="btn btn-danger">
                     Logout
                 </a>
-
             </div>
 
         </div>
