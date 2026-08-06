@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?php 
-=======
 <?php
->>>>>>> 78bc9f3 (Update Student Organizer project)
 session_start();
 require_once("../config/studentdb.inc.php");
 
@@ -20,14 +16,8 @@ if(!isset($_GET["id"])) {
 
 $id = $_GET["id"];
 
-<<<<<<< HEAD
 $query = $conn-> prepare("SELECT * FROM assignments WHERE id =? AND user_id = ?");
 $query -> execute([$id, $user_id]);
-=======
-$query = $conn ->prepare("SELECT * FROM assignments WHERE id =? AND user_id = ? ");
-$query -> execute([$id, $user_id]);
-
->>>>>>> 78bc9f3 (Update Student Organizer project)
 $assignment = $query -> fetch(PDO::FETCH_ASSOC);
 
 if(!$assignment) {
@@ -41,26 +31,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $course_code = trim($_POST["course_code"]);
     $due_date = trim($_POST["due_date"]);
     $created_at = trim($_POST["created_at"]);
-<<<<<<< HEAD
     $note = trim($_POST["note"]);
 
     $update = $conn->prepare("UPDATE assignments SET title = ?, course_code = ?, due_date = ?, created_at = ?, note = ? WHERE id = ? AND user_id = ?");
-=======
-    $notes = trim($_POST["notes"]);
-
-    $update = $conn->prepare("UPDATE assignments SET title = ?, course_code = ?, due_date = ?, created_at = ?, notes = ? WHERE id = ? AND user_id = ?");
->>>>>>> 78bc9f3 (Update Student Organizer project)
 
     $update-> execute([
         $title,
         $course_code,
         $due_date,
         $created_at,
-<<<<<<< HEAD
         $note,
-=======
-        $notes,
->>>>>>> 78bc9f3 (Update Student Organizer project)
         $id,
         $user_id
     ]);
@@ -74,73 +54,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Assignment</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="page-shell">
 
-    <div class="card shadow">
+    <div class="card-theme">
 
-        <div class="card-header bg-warning">
+        <div class="card-theme-header header-warning">
+            <i class="fa-solid fa-pen"></i>
             <h3>Edit Assignment</h3>
         </div>
 
-        <div class="card-body">
+        <div class="card-theme-body">
 
             <form method="POST">
 
-                <div class="mb-3">
-<<<<<<< HEAD
+                <div class="field-group">
                     <label>Assignment Title</label>
-=======
-                    <label>Title</label>
->>>>>>> 78bc9f3 (Update Student Organizer project)
-                    <input type="text" name="title" class="form-control"
+                    <input type="text" name="title" class="field-input"
                            value="<?php echo $assignment['title']; ?>" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Course Code</label>
-                    <input type="text" name="course_code" class="form-control"
+                    <input type="text" name="course_code" class="field-input"
                            value="<?php echo $assignment['course_code']; ?>" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Due Date</label>
-                    <input type="date" name="due_date" class="form-control"
+                    <input type="date" name="due_date" class="field-input"
                            value="<?php echo $assignment['due_date']; ?>" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Created At</label>
-                    <input type="date" name="created_at" class="form-control"
-<<<<<<< HEAD
-                           value="<?php echo $assignment['created_at']; ?>" required>   
-=======
+                    <input type="date" name="created_at" class="field-input"
                            value="<?php echo $assignment['created_at']; ?>" required>
->>>>>>> 78bc9f3 (Update Student Organizer project)
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Notes</label>
-<<<<<<< HEAD
-                    <textarea name="note" class="form-control" rows="4"><?php echo $assignment['note']; ?></textarea>
-=======
-                    <textarea name="notes" class="form-control" rows="4"><?php echo $assignment['notes']; ?></textarea>
->>>>>>> 78bc9f3 (Update Student Organizer project)
+                    <textarea name="note" class="field-input" rows="4"><?php echo $assignment['note']; ?></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-warning">
-                    Update Assignment
-                </button>
+                <div class="btn-row">
+                    <button type="submit" class="btn-theme btn-theme-warning">
+                        Update Assignment
+                    </button>
 
-                <a href="assignments.php" class="btn btn-secondary">
-                    Cancel
-                </a>
+                    <a href="assignments.php" class="btn-theme btn-theme-secondary">
+                        Cancel
+                    </a>
+                </div>
 
             </form>
 

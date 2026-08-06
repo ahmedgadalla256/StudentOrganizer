@@ -12,45 +12,44 @@ if(!isset($_SESSION["user_id"])) {
 
 <head>
     <title>Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="page-shell">
 
-    <div class="card shadow">
+    <div class="card-theme">
 
-        <div class="card-header bg-primary text-white">
+        <div class="card-theme-header">
+            <i class="fa-solid fa-graduation-cap"></i>
             <h3>Student Organizer Dashboard</h3>
         </div>
-        
 
-        
-        <div class="card-body">
+        <div class="card-theme-body">
 
-            <h4>Welcome, <?php echo $_SESSION["full_name"]; ?>!</h4>
+            <h4 style="margin-top:0;">Welcome, <?php echo $_SESSION["full_name"]; ?>!</h4>
+            <p style="color: var(--slate);">You have successfully logged in.</p>
 
-            <p>You have successfully logged in.</p>
+            <hr style="border: none; border-top: 1px solid rgba(122,122,125,0.25); margin: 22px 0;">
 
-            <hr>
+            <div class="btn-stack">
 
-            <div class="d-grid gap-2">
-
-                <a href="profile.php"  class="btn btns">
-                    Account
+                <a href="profile.php" class="btn-theme">
+                    <i class="fa-solid fa-user"></i>&nbsp; Account
                 </a>
-                <a href="courses/courses.php" class="btn btn-success">
-                    Manage Courses
+                <a href="courses/courses.php" class="btn-theme btn-theme-success">
+                    <i class="fa-solid fa-book"></i>&nbsp; Manage Courses
                 </a>
-                <a href="assignments/assignments.php" class="btn btn-info">
-                    Manage Assignments
+                <a href="assignments/assignments.php" class="btn-theme" style="background-color: var(--info);">
+                    <i class="fa-solid fa-list-check"></i>&nbsp; Manage Assignments
                 </a>
-                <a href="auth/logout.php" class="btn btn-danger">
-                    Logout
+                <a href="auth/logout.php" class="btn-theme btn-theme-danger">
+                    <i class="fa-solid fa-right-from-bracket"></i>&nbsp; Logout
                 </a>
             </div>
 

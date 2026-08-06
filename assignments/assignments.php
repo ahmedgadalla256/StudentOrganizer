@@ -21,76 +21,90 @@ $assignments = $query-> fetchAll(PDO::FETCH_ASSOC);
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Assignments</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="page-shell-wide">
 
-    <div class="d-flex justify-content-between mb-3">
-        <h2>My Assignments</h2>
+    <div class="list-header">
+        <h2><i class="fa-solid fa-list-check"></i>&nbsp; My Assignments</h2>
 
-        <div>
-            <a href="add_assignment.php" class="btn btn-success">
-                Add Assignment
+        <div class="btn-row">
+            <a href="add_assignment.php" class="btn-theme btn-theme-success">
+                <i class="fa-solid fa-plus"></i>&nbsp; Add Assignment
             </a>
-
-            <a href="../dashboard.php" class="btn btn-secondary">
-                Dashboard
+            <a href="../dashboard.php" class="btn-theme btn-theme-secondary">
+                <i class="fa-solid fa-house"></i>&nbsp; Dashboard
             </a>
         </div>
     </div>
 
-    <table class="table table-bordered table-striped">
+    <?php if (count($assignments) === 0): ?>
 
-        <thead class="table-dark">
+        <div class="card-theme">
+            <div class="empty-state">
+                <i class="fa-solid fa-clipboard-list"></i>
+                No assignments yet. Click "Add Assignment" to get started.
+            </div>
+        </div>
 
-            <tr>
-                <th>Assignment Title</th>
-                <th>Course Code</th>
-                <th>Due Date</th>
-                <th>Created At</th>
-                <th>Notes</th>
-                <th>Actions</th>
-            </tr>
+    <?php else: ?>
 
-        </thead>
+    <div class="table-shell">
+        <table class="table-theme">
 
-        <tbody>
+            <thead>
+                <tr>
+                    <th>Assignment Title</th>
+                    <th>Course Code</th>
+                    <th>Due Date</th>
+                    <th>Created At</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-        <?php foreach ($assignments as $assignment) { ?>
+            <tbody>
 
-            <tr>
+            <?php foreach ($assignments as $assignment) { ?>
 
-                <td><?php echo $assignment["title"]; ?></td>
-                <td><?php echo $assignment["course_code"]; ?></td>
-                <td><?php echo $assignment["due_date"]; ?></td>
-                <td><?php echo $assignment["created_at"]; ?></td>
-                <td><?php echo $assignment["note"]; ?></td>
+                <tr>
 
-                <td>
+                    <td><?php echo $assignment["title"]; ?></td>
+                    <td><?php echo $assignment["course_code"]; ?></td>
+                    <td><?php echo $assignment["due_date"]; ?></td>
+                    <td><?php echo $assignment["created_at"]; ?></td>
+                    <td><?php echo $assignment["note"]; ?></td>
 
-                    <a href="edit_assignment.php?id=<?php echo $assignment["id"]; ?>" class="btn btn-warning btn-sm">
-                        Edit
-                    </a>
+                    <td>
+                        <div class="table-actions">
+                            <a href="edit_assignment.php?id=<?php echo $assignment["id"]; ?>" class="btn-theme btn-theme-warning btn-theme-sm">
+                                Edit
+                            </a>
 
-                    <a href="delete_assignment.php?id=<?php echo $assignment["id"]; ?>" class="btn btn-danger btn-sm"
-                       onclick="return confirm('Delete this assignment?')">
-                        Delete
-                    </a>
+                            <a href="delete_assignment.php?id=<?php echo $assignment["id"]; ?>" class="btn-theme btn-theme-danger btn-theme-sm"
+                               onclick="return confirm('Delete this assignment?')">
+                                Delete
+                            </a>
+                        </div>
+                    </td>
 
-                </td>
+                </tr>
 
-            </tr>
+            <?php } ?>
 
-        <?php } ?>
+            </tbody>
 
-        </tbody>
+        </table>
+    </div>
 
-    </table>
+    <?php endif; ?>
 
 </div>
 

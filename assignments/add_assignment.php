@@ -38,57 +38,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Assignment</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="page-shell">
 
-    <div class="card shadow">
+    <div class="card-theme">
 
-        <div class="card-header bg-success text-white">
+        <div class="card-theme-header header-success">
+            <i class="fa-solid fa-plus"></i>
             <h3>Add New Assignment</h3>
         </div>
 
-        <div class="card-body">
+        <div class="card-theme-body">
 
             <form method="POST">
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Assignment Title</label>
-                    <input type="text" name="title" class="form-control" required>
+                    <input type="text" name="title" class="field-input" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Course Code</label>
-                    <input type="text" name="course_code" class="form-control" required>
+                    <input type="text" name="course_code" class="field-input" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Due Date</label>
-                    <input type="date" name="due_date" class="form-control" required>
+                    <input type="date" name="due_date" class="field-input" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Created At</label>
-                    <input type="date" name="created_at" class="form-control" required>
+                    <input type="date" name="created_at" class="field-input" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Notes</label>
-                    <textarea name="note" class="form-control" rows="4"></textarea>
+                    <textarea name="note" class="field-input" rows="4"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-success">
-                    Add Assignment
-                </button>
+                <div class="btn-row">
+                    <button type="submit" class="btn-theme btn-theme-success">
+                        Add Assignment
+                    </button>
 
-                <a href="assignments.php" class="btn btn-secondary">
-                    Cancel
-                </a>
+                    <a href="assignments.php" class="btn-theme btn-theme-secondary">
+                        Cancel
+                    </a>
+                </div>
 
             </form>
 

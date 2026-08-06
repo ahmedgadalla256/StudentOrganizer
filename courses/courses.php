@@ -21,82 +21,96 @@ $courses = $query-> fetchAll(PDO::FETCH_ASSOC);
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Courses</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="page-shell-wide">
 
-    <div class="d-flex justify-content-between mb-3">
-        <h2>My Courses</h2>
+    <div class="list-header">
+        <h2><i class="fa-solid fa-book"></i>&nbsp; My Courses</h2>
 
-        <div>
-            <a href="add_course.php" class="btn btn-success">
-                Add Course
+        <div class="btn-row">
+            <a href="add_course.php" class="btn-theme btn-theme-success">
+                <i class="fa-solid fa-plus"></i>&nbsp; Add Course
             </a>
-
-            <a href="../dashboard.php" class="btn btn-secondary">
-                Dashboard
+            <a href="../dashboard.php" class="btn-theme btn-theme-secondary">
+                <i class="fa-solid fa-house"></i>&nbsp; Dashboard
             </a>
         </div>
     </div>
 
-    <table class="table table-bordered table-striped">
+    <?php if (count($courses) === 0): ?>
 
-        <thead class="table-dark">
+        <div class="card-theme">
+            <div class="empty-state">
+                <i class="fa-solid fa-book-open"></i>
+                No courses yet. Click "Add Course" to get started.
+            </div>
+        </div>
 
-            <tr>
-                <th>Course Name</th>
-                <th>Course Code</th>
-                <th>Instructor</th>
-                <th>Classroom</th>
-                <th>Day</th>
-                <th>Time</th>
-                <th>Semester</th>
-                <th>Credits</th>
-                <th>Actions</th>
-            </tr>
+    <?php else: ?>
 
-        </thead>
+    <div class="table-shell">
+        <table class="table-theme">
 
-        <tbody>
+            <thead>
+                <tr>
+                    <th>Course Name</th>
+                    <th>Course Code</th>
+                    <th>Instructor</th>
+                    <th>Classroom</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Semester</th>
+                    <th>Credits</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-        <?php foreach ($courses as $course) { ?>
+            <tbody>
 
-            <tr>
+            <?php foreach ($courses as $course) { ?>
 
-                <td><?php echo $course["course_name"]; ?></td>
-                <td><?php echo $course["course_code"]; ?></td>
-                <td><?php echo $course["instructor"]; ?></td>
-                <td><?php echo $course["classroom"]; ?></td>
-                <td><?php echo $course["day"]; ?></td>
-                <td><?php echo $course["course_time"]; ?></td>
-                <td><?php echo $course["semester"]; ?></td>
-                <td><?php echo $course["credit_hours"]; ?></td>
+                <tr>
 
-                <td>
+                    <td><?php echo $course["course_name"]; ?></td>
+                    <td><?php echo $course["course_code"]; ?></td>
+                    <td><?php echo $course["instructor"]; ?></td>
+                    <td><?php echo $course["classroom"]; ?></td>
+                    <td><?php echo $course["day"]; ?></td>
+                    <td><?php echo $course["course_time"]; ?></td>
+                    <td><?php echo $course["semester"]; ?></td>
+                    <td><?php echo $course["credit_hours"]; ?></td>
 
-                    <a href="edit_course.php?id=<?php echo $course["id"]; ?>" class="btn btn-warning btn-sm">
-                        Edit
-                    </a>
+                    <td>
+                        <div class="table-actions">
+                            <a href="edit_course.php?id=<?php echo $course["id"]; ?>" class="btn-theme btn-theme-warning btn-theme-sm">
+                                Edit
+                            </a>
 
-                    <a href="delete_course.php?id=<?php echo $course["id"]; ?>" class="btn btn-danger btn-sm"
-                       onclick="return confirm('Delete this course?')">
-                        Delete
-                    </a>
+                            <a href="delete_course.php?id=<?php echo $course["id"]; ?>" class="btn-theme btn-theme-danger btn-theme-sm"
+                               onclick="return confirm('Delete this course?')">
+                                Delete
+                            </a>
+                        </div>
+                    </td>
 
-                </td>
+                </tr>
 
-            </tr>
+            <?php } ?>
 
-        <?php } ?>
+            </tbody>
 
-        </tbody>
+        </table>
+    </div>
 
-    </table>
+    <?php endif; ?>
 
 </div>
 

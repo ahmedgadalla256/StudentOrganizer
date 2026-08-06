@@ -40,84 +40,79 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="page-shell">
 
-    <div class="row justify-content-center">
+    <div class="card-theme">
 
-        <div class="col-md-5">
+        <div class="card-theme-header header-success" style="justify-content:center;">
+            <i class="fa-solid fa-user-plus"></i>
+            <h3>Create Account</h3>
+        </div>
 
-            <div class="card shadow">
+        <div class="card-theme-body">
 
-                <div class="card-header text-center">
-                    <h3>Create Account</h3>
+            <?php if($message != NULL) { ?>
+                <div class="alert-theme">
+                    <?php echo $message; ?>
+                </div>
+            <?php } ?>
+
+            <form method="POST">
+
+                <div class="field-group">
+                    <label>Full Name</label>
+                    <input
+                        type="text"
+                        name="full_name"
+                        class="field-input"
+                        required>
                 </div>
 
-                <div class="card-body">
-
-                    <?php if($message != NULL) { ?>
-                        <div class="alert alert-danger">
-                            <?php echo $message; ?>
-                        </div>
-                    <?php } ?>
-
-                    <form method="POST">
-
-                        <div class="mb-3">
-                            <label>Full Name</label>
-                            <input
-                                type="text"
-                                name="full_name"
-                                class="form-control"
-                                required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                class="form-control"
-                                required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Password</label>
-                            <input
-                                type="password"
-                                name="pwd"
-                                class="form-control"
-                                required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Confirm Password</label>
-                            <input
-                                type="password"
-                                name="c_pwd"
-                                class="form-control"
-                                required>
-                        </div>
-
-                        <button class="btn btn-primary w-100">
-                            Sign Up
-                        </button>
-
-                    </form>
-
-                    <div class="text-center mt-3">
-                        Already have an account?
-                        <a href="login.php">Login</a>
-                    </div>
-
+                <div class="field-group">
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        name="email"
+                        class="field-input"
+                        required>
                 </div>
 
+                <div class="field-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="pwd"
+                        class="field-input"
+                        required>
+                </div>
+
+                <div class="field-group">
+                    <label>Confirm Password</label>
+                    <input
+                        type="password"
+                        name="c_pwd"
+                        class="field-input"
+                        required>
+                </div>
+
+                <button class="btn-theme btn-theme-success btn-theme-block">
+                    Sign Up
+                </button>
+
+            </form>
+
+            <div style="text-align:center; margin-top:18px; color: var(--slate);">
+                Already have an account?
+                <a href="login.php" style="color: var(--ink); font-weight:600;">Login</a>
             </div>
 
         </div>

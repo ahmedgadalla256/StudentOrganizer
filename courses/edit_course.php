@@ -63,85 +63,90 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Course</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/daa62b2e1b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../style.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="page-shell">
 
-    <div class="card shadow">
+    <div class="card-theme">
 
-        <div class="card-header bg-warning">
+        <div class="card-theme-header header-warning">
+            <i class="fa-solid fa-pen"></i>
             <h3>Edit Course</h3>
         </div>
 
-        <div class="card-body">
+        <div class="card-theme-body">
 
             <form method="POST">
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Course Name</label>
-                    <input type="text" name="course_name" class="form-control"
+                    <input type="text" name="course_name" class="field-input"
                            value="<?php echo $course['course_name']; ?>" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Course Code</label>
-                    <input type="text" name="course_code" class="form-control"
+                    <input type="text" name="course_code" class="field-input"
                            value="<?php echo $course['course_code']; ?>" required>
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Instructor</label>
-                    <input type="text" name="instructor" class="form-control"
+                    <input type="text" name="instructor" class="field-input"
                            value="<?php echo $course['instructor']; ?>">
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Classroom</label>
-                    <input type="text" name="classroom" class="form-control"
+                    <input type="text" name="classroom" class="field-input"
                            value="<?php echo $course['classroom']; ?>">
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Day</label>
-                    <input type="text" name="day" class="form-control"
+                    <input type="text" name="day" class="field-input"
                            value="<?php echo $course['day']; ?>">
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Course Time</label>
-                    <input type="time" name="course_time" class="form-control"
+                    <input type="time" name="course_time" class="field-input"
                            value="<?php echo $course['course_time']; ?>">
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Semester</label>
-                    <input type="text" name="semester" class="form-control"
+                    <input type="text" name="semester" class="field-input"
                            value="<?php echo $course['semester']; ?>">
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Credit Hours</label>
-                    <input type="number" name="credit_hours" class="form-control"
+                    <input type="number" name="credit_hours" class="field-input"
                            value="<?php echo $course['credit_hours']; ?>">
                 </div>
 
-                <div class="mb-3">
+                <div class="field-group">
                     <label>Notes</label>
-                    <textarea name="notes" class="form-control" rows="4"><?php echo $course['notes']; ?></textarea>
+                    <textarea name="notes" class="field-input" rows="4"><?php echo $course['notes']; ?></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-warning">
-                    Update Course
-                </button>
+                <div class="btn-row">
+                    <button type="submit" class="btn-theme btn-theme-warning">
+                        Update Course
+                    </button>
 
-                <a href="courses.php" class="btn btn-secondary">
-                    Cancel
-                </a>
+                    <a href="courses.php" class="btn-theme btn-theme-secondary">
+                        Cancel
+                    </a>
+                </div>
 
             </form>
 

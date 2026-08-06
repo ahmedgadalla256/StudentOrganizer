@@ -72,17 +72,22 @@ if ($_SERVER["REQUEST_METHOD"] =="POST") {
                     <p id="msg"><?php echo $msg; ?></p>
                 <?php endif; ?>
                 <form id="pwdForm" method="POST">
-                    <label for="currentPwd">Current Password:</label>
-                    <input type="password" id="currentPwd" name="currentPwd" class="dtt" required>
-                    <br>
-                    <label for="newPwd">New Password:</label>
-                    <input type="password" id="newPwd" name="newPwd" class="dtt" required>
-                    <br>
-                    <label for="confirmPwd">Confirm Password:</label>
-                    <input type="password" id="confirmPwd" name="confirmPwd" class="dtt" required>
-                    <br>
-                    <button type="submit" id="subbtn" class="btns">Submit</button>
-                    <button type="button" id="closeModal" class="btns">Cancel</button>
+                    <div class="field-group">
+                        <label for="currentPwd">Current Password</label>
+                        <input type="password" id="currentPwd" name="currentPwd" class="dtt field-input" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="newPwd">New Password</label>
+                        <input type="password" id="newPwd" name="newPwd" class="dtt field-input" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="confirmPwd">Confirm Password</label>
+                        <input type="password" id="confirmPwd" name="confirmPwd" class="dtt field-input" required>
+                    </div>
+                    <div class="btn-row" style="justify-content:center;">
+                        <button type="submit" id="subbtn" class="btns">Submit</button>
+                        <button type="button" id="closeModal" class="btns btn-theme-secondary">Cancel</button>
+                    </div>
                 </form>
             </div>
         </div>
